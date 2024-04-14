@@ -6,96 +6,41 @@
 @using MvcLogin.Data;
 @using MvcLogin.Models;
 
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="AddNewQuanSo">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-            <div class="form-group">
-                <label asp-for="IdDv" class="control-label"></label>
-                <input asp-for="IdDv" class="form-control" value="@User.Identity.Name" readonly />
-                <span asp-validation-for="IdDv" class="text-danger"></span>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/nhapqs.css">
+</head>
+<body>
+    <div class="contact-container">
+        <form action="" class="contact-left">
+            <div class="grid-container">
+                <div class="grid-column">
+                    <input type="text" name="IDdv" placeholder="IDdv" class="contact-inputs" required>
+                    <input type="text" name="Ngay" placeholder="Ngay" class="contact-inputs" required>
+                    <input type="text" name="Tổng quân số" placeholder="Tổng quân số" class="contact-inputs" required>
+                    <input type="text" name="Quân số vắng" placeholder="Quân số vắng" class="contact-inputs" required>
+                    <input type="text" name="Đào ngũ" placeholder="Đào ngũ" class="contact-inputs" required>
+                    <input type="text" name="Đi viện" placeholder="Đi viện" class="contact-inputs" required>
+                    <input type="text" name="Đi bệnh xá" placeholder="Đi bệnh xá" class="contact-inputs" required>
+                </div>
+                <div class="grid-column">
+                    <input type="text" name="Đi học" placeholder="Đi học" class="contact-inputs" required>
+                    <input type="text" name="Đi thực tê" placeholder="Đi thực tê" class="contact-inputs" required>
+                    <input type="text" name="Thực tập" placeholder="Thực tập" class="contact-inputs" required>
+                    <input type="text" name="Đi tranh thủ" placeholder="Đi tranh thủ" class="contact-inputs" required>
+                    <input type="text" name="Đi công tác" placeholder="Đi công tác" class="contact-inputs" required>
+                    <input type="text" name="Thai sản" placeholder="Thai sản" class="contact-inputs" required>
+                    <input type="text" name="Lý do khác" placeholder="Lý do khác" class="contact-inputs" required>
+                </div>
+                <div class="grid-column">
+                    <input type="message" name="Chú thích" placeholder="Chú thích" class="contact-inputs" required>
+                </div>
             </div>
-            @* <div class="form-group">
-                <label asp-for="IdDv" class="control-label"></label>
-                <input asp-for="IdDv" class="form-control"  />
-                <span asp-validation-for="IdDv" class="text-danger"></span>
-            </div> *@
-            <div class="form-group">
-                <label asp-for="Ngay" class="control-label"></label>
-                <input asp-for="Ngay" class="form-control" />
-                <span asp-validation-for="Ngay" class="text-danger"></span>
-            </div>
-           
-            <div class="form-group">
-                <label asp-for="TongQs" class="control-label"></label>
-                <input asp-for="TongQs" class="form-control" />
-                <span asp-validation-for="TongQs" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="QsVang" class="control-label"></label>
-                <input asp-for="QsVang" class="form-control" />
-                <span asp-validation-for="QsVang" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DaoNgu" class="control-label"></label>
-                <input asp-for="DaoNgu" class="form-control" />
-                <span asp-validation-for="DaoNgu" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DiVien" class="control-label"></label>
-                <input asp-for="DiVien" class="form-control" />
-                <span asp-validation-for="DiVien" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BenhXa" class="control-label"></label>
-                <input asp-for="BenhXa" class="form-control" />
-                <span asp-validation-for="BenhXa" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DiHoc" class="control-label"></label>
-                <input asp-for="DiHoc" class="form-control" />
-                <span asp-validation-for="DiHoc" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DiThucTe" class="control-label"></label>
-                <input asp-for="DiThucTe" class="form-control" />
-                <span asp-validation-for="DiThucTe" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DiThucTap" class="control-label"></label>
-                <input asp-for="DiThucTap" class="form-control" />
-                <span asp-validation-for="DiThucTap" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DiTt" class="control-label"></label>
-                <input asp-for="DiTt" class="form-control" />
-                <span asp-validation-for="DiTt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DiCtac" class="control-label"></label>
-                <input asp-for="DiCtac" class="form-control" />
-                <span asp-validation-for="DiCtac" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ThaiSan" class="control-label"></label>
-                <input asp-for="ThaiSan" class="form-control" />
-                <span asp-validation-for="ThaiSan" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LyDoKhac" class="control-label"></label>
-                <input asp-for="LyDoKhac" class="form-control" />
-                <span asp-validation-for="LyDoKhac" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ChuThich" class="control-label"></label>
-                <input asp-for="ChuThich" class="form-control" />
-                <span asp-validation-for="ChuThich" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+            <button type="submit">Lưu </button>
         </form>
     </div>
-</div>
+</body>
+</html>

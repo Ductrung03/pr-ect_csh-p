@@ -16,8 +16,8 @@
         <aside>
             <div class="toggle">
                 <div class="logo">
-                    <img src="~/images/qdnd.png">
-                    <h2><span class="danger">Design by An</span></h2>
+                    <img src="~/images/Logo_MTA.png">
+                    <h2><span class="danger">Trang chủ</span></h2>
                 </div>
                 <div class="close" id="close-btn">
                     <span class="material-icons-sharp">
@@ -31,7 +31,7 @@
                     <span class="material-icons-sharp">
                         dashboard
                     </span>
-                    <h3>Trang </h3>
+                    <h3>Trang chủ</h3>
                 </a>
                 @if (User.IsInRole("admin"))
                 {
@@ -41,19 +41,19 @@
                         <span class="material-icons-sharp">
                             dashboard
                         </span>
-                        <h3>Trang </h3>
+                        <h3>Bảng báo cáo quân số và tình hình </h3>
                     </a>
                     <a href="/UserAuthentication/Registration">
                         <span class="material-icons-sharp">
                             add
                         </span>
-                        <h3>Registration</h3>
+                        <h3>Đăng ký</h3>
                     </a>
                     <a href="/UserAuthentication/Registration">
                         <span class="material-icons-sharp">
-                            person_outline
+                            groups
                         </span>
-                        <h3>Thông tin</h3>
+                        <h3>Thông tin người dùng</h3>
                     </a>
                     
                     
@@ -61,7 +61,7 @@
                         <span class="material-icons-sharp">
                             insights
                         </span>
-                        <h3>Analytics</h3>
+                        <h3>Thống kê</h3>
                     </a>
                     
 
@@ -72,13 +72,13 @@
                         <span class="material-icons-sharp">
                             person_outline
                         </span>
-                        <h3>Thông tin</h3>
+                        <h3>Thông tin tài khoản</h3>
                     </a>
                     <a href="/UserAuthentication/Logout">
                         <span class="material-icons-sharp">
                             logout
                         </span>
-                        <h3>Logout</h3>
+                        <h3>Đăng xuất</h3>
                     </a>
 
                 }
@@ -87,7 +87,7 @@
         <!-- End of Sidebar Section -->
         <!-- Main Content -->
         <main>
-            <h1>Trang chủ </h1>
+           @*  <h1>Trang chủ </h1> *@
             <!-- Analyses -->
             <div class="analyse">
             </div>
@@ -120,8 +120,8 @@
 
                 <div class="profile">
                     <div class="info">
-                        <p>Xin chào, <b>An</b></p>
-                        <small class="text-muted">Admin</small>
+                        <p>Xin chào, <b>@User.Identity.Name</b></p>
+                        @* <small class="text-muted">Admin</small> *@
                     </div>
                     <div class="profile-photo">
                         @* <img src="images/profile-1.jpg"> *@

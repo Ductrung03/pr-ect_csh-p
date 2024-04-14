@@ -12,8 +12,7 @@ namespace MvcLogin.Data
 
         public QuanLyQuanSo()
         {
-            string connStr = "server=LUCKYBOI;database=login;User ID=LK;Password=1;" +
-                "Integrated Security=true;TrustServerCertificate=True;";
+            string connStr = "Data Source=VUAN;Initial Catalog=QLQS;Persist Security Info=True;User ID=sa;Password=123;Trust Server Certificate=True;";
             
             _connection = new SqlConnection(connStr);
         }
