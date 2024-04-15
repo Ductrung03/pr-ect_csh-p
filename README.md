@@ -23,3 +23,7 @@
 - Uncomment the `RegisterAdmin` method in `UserAuthenticationController`
 - Run the project and hit the url `https://localhost:7198/UserAuthentication/RegisterAdmin`
 - Login with these credentials `username: admin, password: Admin@12345#`
+
+## SQL
+- Xóa file login sql xong chạy lại file scripts
+  
