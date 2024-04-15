@@ -1,8 +1,13 @@
 ﻿@using MvcLogin.Models
 @model IEnumerable<QuanSo>
 
-
-
+<form method="get" asp-action="Index">
+    <div class="form-group">
+        <label for="ngay">Ngày:</label>
+        <input type="date" class="form-control" id="ngay" name="ngay" />
+    </div>
+    <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+</form>
 
 <table class="table table-striped">
     <tr>

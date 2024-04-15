@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Dotnet6MvcLogin.Migrations
+namespace MvcLogin.Migrations
 {
     /// <inheritdoc />
     public partial class init : Migration
