@@ -110,12 +110,12 @@ b {
     color: var(--color-warning);
 }
 
-.container {
+.container-custom {
     display: grid;
     width: 96%;
     margin: 0 auto;
-    gap: 1.8rem;
-    grid-template-columns: 12rem auto 23rem;
+    gap: 1.5rem;
+    grid-template-columns: 12rem auto 12rem;
 }
 
 aside {
@@ -346,7 +346,7 @@ main {
 
         main .recent-orders table {
             background-color: var(--color-white);
-            width: 120%;
+            width: 105%;
             padding: var(--card-padding);
             text-align: center;
             box-shadow: var(--box-shadow);
@@ -421,12 +421,12 @@ main {
         text-align: right;
     }
 
-        .right-section .nav .profile .profile-photo {
+    /*.right-section .nav .profile .profile-photo {
             width: 2.8rem;
             height: 2.8rem;
             border-radius: 50%;
             overflow: hidden;
-        }
+        }*/
 
     .right-section .user-profile {
         display: flex;
@@ -533,7 +533,7 @@ main {
             }
 
 @media screen and (max-width: 1200px) {
-    .container {
+    .container-custom {
         width: 95%;
         grid-template-columns: 7rem auto 23rem;
     }
@@ -588,7 +588,7 @@ main {
 }
 
 @media screen and (max-width: 768px) {
-    .container {
+    .container-custom {
         width: 100%;
         grid-template-columns: 1fr;
         padding: 0 var(--padding-1);
@@ -700,4 +700,49 @@ main {
             .right-section .nav button span {
                 font-size: 2rem;
             }
+}
+
+.thongKeButton, #selectIdDv {
+    position: absolute;
+    top: 3cm; /* Điều chỉnh vị trí theo ý của bạn */
+    left: 50px; /* Điều chỉnh vị trí theo ý của bạn */
+    font-size: 24px; /* Điều chỉnh kích thước theo ý của bạn */
+}
+
+.tkchart {
+    position: absolute;
+    top: 30cm;
+    left: 0;
+    z-index: 5; /* Đảm bảo biểu đồ ở dưới nút "Thống kê" */
+}
+
+/*.table-hidden {
+    display: none;
+}
+*/
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    width: 300px; /* Đặt chiều rộng */
+    height: 200px; /* Đặt chiều cao */
+}
+
+.card-header {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.card-body {
+    padding: 20px;
+    height: calc(100% - 40px); /* Chiều cao của thân thẻ sẽ là 100% trừ đi chiều cao của header và footer */
+    overflow-y: auto; /* Bật cuộn nếu nội dung vượt quá kích thước của thẻ */
+}
+#example th,
+#example td {
+    text-align: center;
 }

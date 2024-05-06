@@ -6,9 +6,10 @@
 
 body {
     font-family: 'Outfit';
-
 }
-/*.contact-container {
+
+.contact-container {
+    /*.contact-container {
    
     height: 100vh;
     display: flex;
@@ -16,8 +17,9 @@ body {
     justify-content: space-evenly;
 }*/
 
-.contact-left {
+    .contact-left
 
+{
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -86,18 +88,19 @@ body {
 .contact-right img {
     width: 500px;
 }
+
 .input-bold-placeholder::placeholder {
-    font-weight: bold;  
-    font-size: 16px;  
-}
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(2, 0fr);  
-    grid-gap:1px;
-    
+    font-weight: bold;
+    font-size: 16px;
 }
 
-/*.grid-column {
+.grid-container {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);  //Chỉ có một cột trong mỗi phần 
-}*/
+    grid-template-columns: repeat(2, 0fr);
+    grid-gap: 1px;
+}
+
+.grid-column {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);  //Chỉ có một cột trong mỗi phần 
+}

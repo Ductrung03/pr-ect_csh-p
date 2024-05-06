@@ -1,145 +1,75 @@
-﻿
-
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
-    <link rel="stylesheet" href="~/css/style.css">
-    <title>Báo cáo quân số và tình hình đơn vị </title>
-</head>
-
-<body>
-
-    <div class="container">
-        <!-- Sidebar Section -->
-        <aside>
-            <div class="toggle">
-                <div class="logo">
-                    @* <img src="~/images/login.jpg"> *@
-                    @* <h2>Asmr<span class="danger">Prog</span></h2> *@
-                </div>
-                <div class="close" id="close-btn">
-                    <span class="material-icons-sharp">
-                        close
-                    </span>
-                </div>
-            </div>
-
-            <div class="sidebar">
-                <a href="#">
-                    <span class="material-icons-sharp">
-                        dashboard
-                    </span>
-                    <h3>Trang chủ</h3>
-                </a>
-                <a href="#">
-                    <span class="material-icons-sharp">
-                        person_outline
-                    </span>
-                    <h3>ues</h3>
-                </a>
-
-                <a href="#" class="active">
-                    <span class="material-icons-sharp">
-                        insights
-                    </span>
-                    <h3>Analytics</h3>
-                </a>
+﻿@using MvcLogin.Models
+@model IEnumerable<Users>
 
 
-                <a href="#">
-                    <span class="material-icons-sharp">
-                        add
-                    </span>
-                    <h3>New Login</h3>
-                </a>
-                <a href="#">
-                    <span class="material-icons-sharp">
-                        logout
-                    </span>
-                    <h3>Logout</h3>
-                </a>
-            </div>
-        </aside>
-        <!-- End of Sidebar Section -->
-        <!-- Main Content -->
-        <main>
-            @* <h1>Trang chủ </h1> *@
-            <!-- Analyses -->
-            <div class="analyse">
-            </div>
-            <div class="recent-orders">
-                <h2>Bảng cáo cáo quân số</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th soope="col">STT</th> </th>
-                            <th scope="col">Đơn vị</th>
-                            <th scope="col">Tổng Quân số</th>
-                            <th scope="col">Quân số vắng</th>
-                            <th scope="col">Đào ngũ</th>
-                            <th scope="col">Đi viện</th>
-                            <th scope="col">Đi bệnh xá</th>
-                            <th scope="col">Đi học</th>
-                            <th scope="col">Đi thực tế</th>
-                            <th scope="col">Đi thực tập</th>
-                            <th scope="col">Đi tranh thủ</th>
-                            <th scope="col">Đi công tác</th>
-                            <th scope="col">Nghỉ thai sản</th>
-                            <th scope="col">Lý do khác</th>
-                            <th scope="col">Nội vụ vệ sinh</th>
-                            <th scope="col">Canh gác</th>
-                            <th scope="col">Tên trực ban</th>
-                            <th scope="col">Chú thích</th>
-
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-                <a href="#">Show All</a>
-            </div>
-            <!-- End of Recent Orders -->
-
-        </main>
-        <!-- End of Main Content -->
-        <!-- Right Section -->
-        <div class="right-section">
-            <div class="nav">
-                <button id="menu-btn">
-                    <!-- <span class="material-icons-sharp">
-                        menu
-                    </span> -->
-                </button>
-                <div class="dark-mode">
-                    <span class="material-icons-sharp active">
-                        light_mode
-                    </span>
-                    <span class="material-icons-sharp">
-                        dark_mode
-                    </span>
-                </div>
-
-                <div class="profile">
-                    <div class="info">
-                        <p>Xin chào, <b>An</b></p>
-                        <small class="text-muted">Admin</small>
-                    </div>
-                    <div class="profile-photo">
-                        @* <img src="images/profile-1.jpg"> *@
-                    </div>
-                </div>
-
-            </div>
-            <!-- End of Nav -->
-        </div>
+<form method="get" action="Display">
+    <label for="id_dv">Division ID:</label>
+    <input type="text" id="id_dv" name="id_dv" placeholder="Enter Division ID">
+    <button type="submit">Search</button>
+</form>
 
 
-    </div>
+<table id="example" class="table table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                Đơn Vị
 
-    @* <script src="orders.js"></script> *@
-    <script src="~/js/index.js"></script>
-</body>
+            </th>
+            <th>
+              Họ
 
-</html>
+            </th>
+            <th>
+               Tên
+
+            </th>
+
+            <th>
+               Email
+
+            </th>
+            
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+   <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                @* <td>
+            @Html.DisplayFor(modelItem => item.IdBcqs)
+            </td> *@
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdDv)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+               
+
+                <td>
+                    @if (item.IsDataEntryAllowed)
+                    {
+                        <span style="color: green;">Đã nhập</span>
+                    }
+                    else
+                    {
+                        <span style="color: red;">Chưa nhập</span>
+                    }
+                </td>
+            </tr>
+        }
+   </tbody>
+</table>
+<a href="#">Hiển thị thêm</a>

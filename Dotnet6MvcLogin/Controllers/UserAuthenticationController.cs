@@ -2,7 +2,9 @@
 using Dotnet6MvcLogin.Repositories.Abstract;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MvcLogin.Data;
+
+using MvcLogin.Models;
+using MvcLogin.Repositories;
 using MvcLogin.Models;
 
 namespace Dotnet6MvcLogin.Controllers
@@ -33,27 +35,55 @@ namespace Dotnet6MvcLogin.Controllers
 
             if (result.StatusCode == 1)
             {
-                if (User.IsInRole("admin"))
-                {
-                    return RedirectToAction("Index", "QS");
-                }
-                else if (!string.IsNullOrEmpty(User.Identity.Name))
-                {
-                    return RedirectToAction("AddQuanSo", "QS");
-                }
-                else
-                {
-                    // Nếu không phải admin và không có tên người dùng, trả về một giá trị mặc định.
-                    
-                    return RedirectToAction(nameof(Login));
+                // Tạo một thể hiện của RepoAdmin
+                var repoAdmin = new RepoAdmin();
+                var users = new Users();
+                var history = new LoginHistory();
+                
+                    var historyRecord = new LoginHistory
+                    {
 
+                        FirstName = model.Username,
+
+                        LoginTime = DateTime.Now,
+                       
+                        
+                    };
+                   
+                
+
+                // Lưu bản ghi lịch sử vào cơ sở dữ liệu
+               
+                
+
+                // Gọi phương thức SaveLoginHistoryToDatabase từ thể hiện của RepoAdmin
+                bool saveResult = repoAdmin.SaveLoginHistoryToDatabase(historyRecord);
+
+                if (saveResult)
+                {
+                    if (User.IsInRole("admin"))
+                    {
+                        return RedirectToAction("Index", "Admin");
+                        /* return RedirectToAction("Index", "TrangChu");*/
+                    }
+                    else if (!string.IsNullOrEmpty(User.Identity.Name))
+                    {
+                        /* return RedirectToAction("AddQuanSo", "User");*/
+                        return RedirectToAction("Index", "TrangChu");
+                    }
+                    else
+                    {
+                        return RedirectToAction(nameof(Login));
+                    }
                 }
+                
             }
             else
             {
                 TempData["msg"] = result.Message;
                 return RedirectToAction(nameof(Login));
             }
+            return RedirectToAction(nameof(Login));
         }
 
         // Thêm một hành động mặc định trong trường hợp không có trường hợp nào phù hợp.
